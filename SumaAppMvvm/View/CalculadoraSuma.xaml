@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SumaAppMvvm.View.CalculadoraSuma"
+             xmlns:viewModel="clr-namespace:SumaAppMvvm.ViewModel"
+             x:DataType="viewModel:CalculadoraSumaViewModel"
+             Title="CalculadoraSuma">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="20">
+
+            <Image Source="calculator.png"/>
+
+            <Label Text="CALCULADORA : SUMA " FontSize="25" FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="0,40,0,0" />
+
+            <Label Text="Ingrese Primer Numero : " Margin="0,20,0,0"/>
+            <Entry Text="{Binding PrimerNumero}" Keyboard="Numeric"/>
+            
+            <Label Text="Ingrese Segundo Numero : "/>
+            <Entry Text="{Binding SegundoNumero}" Keyboard="Numeric"/>
+
+            <Label Text="Resultado"/>
+            <Entry Text="{Binding Resultado}" Keyboard="Numeric" IsReadOnly="True"/>
+
+            <Grid RowDefinitions="Auto" ColumnDefinitions="*,*" ColumnSpacing="10">
+                <Button Text="Calcular" Grid.Column="0"  x:Name="BtnCalcular" Background="#14AF24" CornerRadius="20" TextColor="White" FontAttributes="Bold" Command="{Binding CalcularCommand}" />
+                <Button Text="Limpiar" Grid.Column="1" x:Name="BtnLimpiar" Background="DarkRed" CornerRadius="20" TextColor="White" FontAttributes="Bold" Command="{Binding LimpiarCommand}"/>
+            </Grid>
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
