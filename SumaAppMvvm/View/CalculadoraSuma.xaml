@@ -9,9 +9,10 @@
     <ScrollView>
         <VerticalStackLayout Spacing="20" Padding="20">
 
-            <Image Source="calculator.png"/>
 
-            <Label Text="CALCULADORA : SUMA " FontSize="25" FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="0,40,0,0" />
+            <Label Text="CALCULADORA : SUMA " FontSize="25" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+
+            <Image Source="calculator.svg"/>
 
             <Label Text="Ingrese Primer Numero : " Margin="0,20,0,0"/>
             <Entry Text="{Binding PrimerNumero}" Keyboard="Numeric"/>
@@ -27,7 +28,7 @@
                 <Button Text="Limpiar" Grid.Column="1" x:Name="BtnLimpiar" Background="DarkRed" CornerRadius="20" TextColor="White" FontAttributes="Bold" Command="{Binding LimpiarCommand}"/>
             </Grid>
 
-
+        
 
         </VerticalStackLayout>
     </ScrollView>

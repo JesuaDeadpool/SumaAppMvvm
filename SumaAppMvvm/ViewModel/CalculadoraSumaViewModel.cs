@@ -26,27 +26,25 @@ namespace SumaAppMvvm.ViewModel
             try
             {
 
-                if (PrimerNumero == 0 )
+                if (PrimerNumero == 0)
                 {
-                    Alert("CAMPOS VACIOS", "Primer Numero esta vacio");
+                    Alerta("CAMPOS VACIOS", "Primer Numero esta vacio");
 
-                }else if (SegundoNumero == 0)
+                }
+                else if (SegundoNumero == 0)
                 {
-                    Alert("CAMPOS VACIOS", "Segundo Numero esta vacio");
+                    Alerta("CAMPOS VACIOS", "Segundo Numero esta vacio");
 
                 }
                 else
                 {
                     Resultado = PrimerNumero + SegundoNumero;
                 }
-               
-
-
 
             }
             catch (Exception e)
             {
-               Alert("ERROR", e.Message);
+               Alerta("ERROR", e.Message);
             }
 
         }
@@ -59,9 +57,9 @@ namespace SumaAppMvvm.ViewModel
             Resultado = 0; 
         }
 
-        public async Task Alert(string title, string message)
+        private void Alerta(string Titulo, string Mensaje)
         {
-            await App.Current!.MainPage!.DisplayAlert(title, message, "Aceptar"); 
+            MainThread.BeginInvokeOnMainThread(async () => await App.Current!.MainPage!.DisplayAlert(Titulo, Mensaje, "Aceptar"));
         }
     }
 }
